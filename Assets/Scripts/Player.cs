@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 {
     public float moveSpeed = 7f;
     private MeshRenderer meshRenderer;
-    private Color[] colors = {Color.red, Color.yellow, Color.black, Color.blue, Color.magenta, Color.green};
+    private Color[] colors = {Color.red, Color.yellow, Color.green, Color.magenta, Color.black, Color.blue};
 
     private void Start()
     {
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
     IEnumerator ChangeColor()
     {
-        bool isRunning = true;
+        /*bool isRunning = true;
         while (isRunning)
         {
             meshRenderer.material.color = Color.red;
@@ -47,7 +47,14 @@ public class Player : MonoBehaviour
             meshRenderer.material.color = Color.blue;
             isRunning = false;
             Debug.Log("GameStop");
+        }*/
+
+        foreach (Color color in colors)
+        {
+            meshRenderer.material.color = color;
+            yield return new WaitForSeconds(5f);
         }
+        Debug.Log("Game Stop!");
     }
 
     private void OnCollisionEnter(Collision other)
