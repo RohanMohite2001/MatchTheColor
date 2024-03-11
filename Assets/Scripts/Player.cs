@@ -31,24 +31,6 @@ public class Player : MonoBehaviour
 
     IEnumerator ChangeColor()
     {
-        /*bool isRunning = true;
-        while (isRunning)
-        {
-            meshRenderer.material.color = Color.red;
-            yield return new WaitForSeconds(5f);
-            meshRenderer.material.color = Color.yellow;
-            yield return new WaitForSeconds(5f);
-            meshRenderer.material.color = Color.green;
-            yield return new WaitForSeconds(5f);
-            meshRenderer.material.color = Color.magenta;
-            yield return new WaitForSeconds(5f);
-            meshRenderer.material.color = Color.black;
-            yield return new WaitForSeconds(5f);
-            meshRenderer.material.color = Color.blue;
-            isRunning = false;
-            Debug.Log("GameStop");
-        }*/
-
         foreach (Color color in colors)
         {
             meshRenderer.material.color = color;
