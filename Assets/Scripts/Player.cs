@@ -2,12 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour
 {
     public float moveSpeed = 7f;
     private MeshRenderer meshRenderer;
     public Color playerColor;
+    private Color[] colors = {Color.red, Color.yellow, Color.black, Color.blue, Color.magenta, Color.green};
+
     private void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -55,6 +58,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Score++");
             GameManager.Instance.AddScore();
+            meshRenderer.material.color = colors[Random.Range(0, colors.Length)];
         }
         else if(other.gameObject.CompareTag("Block") && meshRenderer.material.color != other.gameObject.GetComponent<MeshRenderer>().material.color)
         {
