@@ -8,13 +8,11 @@ public class Player : MonoBehaviour
 {
     public float moveSpeed = 7f;
     private MeshRenderer meshRenderer;
-    public Color playerColor;
     private Color[] colors = {Color.red, Color.yellow, Color.black, Color.blue, Color.magenta, Color.green};
 
     private void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
-        playerColor = GetComponent<MeshRenderer>().material.color;
         StartCoroutine(ChangeColor());
     }
 
